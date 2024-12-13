@@ -5,6 +5,7 @@ import com.lianlu.common.Credential;
 import com.lianlu.config.LianluAppProperties;
 import com.lianlu.models.SmsSend;
 import com.lianlu.param.LianluTemplateSmsParam;
+import org.springframework.util.Assert;
 
 import java.util.Map;
 
@@ -21,8 +22,15 @@ public class LianluSmsService {
         this.appPropertiesMap = appPropertiesMap;
     }
 
-    public void sendTemplateSms(LianluTemplateSmsParam param){
+    public JSONObject sendTemplateSms(LianluTemplateSmsParam param) {
+        // params check
+        Assert.notNull(param, "param must not be null");
+        Assert.notNull(param.getTemplateId(), "templateId must not be null");
+        Assert.notNull(param.getApp(), "app must not be null");
+        Assert.notNull(param.getMobiles(), "mobiles must not be null");
+
         LianluAppProperties appProperties = appPropertiesMap.get(param.getApp());
+        Assert.notNull(appProperties, "app properties not found for app: " + param.getApp());
 
         Credential credential = new Credential(
                 appProperties.getMchId(),
@@ -34,10 +42,10 @@ public class LianluSmsService {
         s.setTemplateParamSet(param.getParams());
         s.setPhoneNumberSet(param.getMobiles());
         s.setTemplateId(param.getTemplateId());
-        JSONObject re = null;
+        JSONObject result = null;
         try {
-            re = s.TemplateSend(credential, s);
-            System.out.println("send result : " + re);
+            result = s.TemplateSend(credential, s);
+            return result;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

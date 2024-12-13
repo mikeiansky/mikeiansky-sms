@@ -1,6 +1,7 @@
 package io.github.mikeiansky.sms.sample;
 
 import com.lianlu.param.LianluTemplateSmsParam;
+import com.lianlu.utils.LianluResponseUtils;
 import io.github.mikeiansky.sms.service.LianluSmsService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,8 @@ public class TestService {
         });
         param.setMobiles(new String[]{mobile});
         param.setApp(app);
-        lianluSmsService.sendTemplateSms(param);
+        boolean isOk = LianluResponseUtils.isOk(lianluSmsService.sendTemplateSms(param));
+        System.out.println("is ok : " + isOk);
     }
 
 }
