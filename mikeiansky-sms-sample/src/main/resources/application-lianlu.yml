@@ -1,0 +1,15 @@
+io:
+  github:
+    mikeiansky:
+      sms:
+        lianlu:
+          app:
+            meadow:
+              mch-id: xxx
+              appid: xxx
+              security-key: xxxx
+
+tag: xxx
+template-id: xxx
+mobile: xxx
+app: xxx
