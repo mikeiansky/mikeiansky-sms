@@ -6,10 +6,15 @@
     <parent>
         <groupId>io.github.mikeiansky</groupId>
         <artifactId>mikeiansky-sms</artifactId>
-        <version>0.0.1</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>mikeiansky-sms-sample</artifactId>
+
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <skipTests>true</skipTests>
+    </properties>
 
     <dependencies>
         <dependency>

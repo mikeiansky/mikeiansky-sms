@@ -6,13 +6,13 @@
 
     <groupId>io.github.mikeiansky</groupId>
     <artifactId>mikeiansky-sms</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     <modules>
         <module>mikeiansky-sms-context</module>
         <module>mikeiansky-sms-autoconfigure</module>
         <module>mikeiansky-sms-starter</module>
-        <module>mikeiansky-sms-sample</module>
+<!--        <module>mikeiansky-sms-sample</module>-->
     </modules>
 
     <properties>
