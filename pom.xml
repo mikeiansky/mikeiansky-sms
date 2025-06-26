@@ -12,7 +12,7 @@
         <module>mikeiansky-sms-context</module>
         <module>mikeiansky-sms-autoconfigure</module>
         <module>mikeiansky-sms-starter</module>
-<!--        <module>mikeiansky-sms-sample</module>-->
+        <module>mikeiansky-sms-sample</module>
     </modules>
 
     <properties>
